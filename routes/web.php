@@ -14,5 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome_silk');
 });
+
+Route::get('/generatepassword','App\Http\Controllers\LoginController@generatepassword');
+Route::post('/validasilogin','App\Http\Controllers\LoginController@validasiLogin');
+Route::get('/dash','App\Http\Controllers\AdminController@index');
+Route::get('/logout','App\Http\Controllers\LoginController@logoutSistem');
