@@ -18,6 +18,22 @@ class PasienController extends Controller
  
     }
 
+	public function getpasien()
+    {
+    	// mengambil data dari table pasien
+    	$pasien = DB::table('pasien')->get();
+ 
+    	// mengirim data pasien ke view index
+    	if($pasien){
+            return response()->json(["Result"=>
+                    ["ResultCode"=> 1,
+                    "ResultMessage"=>"Success get data pasien" ],
+                    "DataUser"=>$pasien
+                ], 200
+            );
+    	}
+	}
+
     public function tambahpasien()
     {
     	$pasien = DB::table('pasien')->get();
@@ -72,4 +88,5 @@ public function editpasien(Request $request)
 	]);
 	return redirect('/pasien');
 }
+	
 }

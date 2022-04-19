@@ -31,12 +31,14 @@ Route::get('/rekam_medis/poli','App\Http\Controllers\RekamMedisController@poli')
 
 Route::get('/dokter','App\Http\Controllers\DokterController@dokterindex');
 
+Route::get('/getdatapasien','App\Http\Controllers\PasienController@getpasien');
 Route::get('/pasien','App\Http\Controllers\PasienController@pasienindex');
 Route::get('/tambahpasien','App\Http\Controllers\PasienController@tambahpasien');
 Route::post('/createpasien','App\Http\Controllers\PasienController@createpasien');
 Route::get('/hapuspasien/{id}','App\Http\Controllers\PasienController@hapuspasien');
 Route::get('/ubahpasien/{id}','App\Http\Controllers\PasienController@ubahpasien');
 Route::post('/editpasien/{id}','App\Http\Controllers\PasienController@editpasien');
+
 
 Route::get('/poli_dash','App\Http\Controllers\PoliController@poli_dash')->name('poli_dash');
 Route::post('/poli_tambah','App\Http\Controllers\PoliController@poli_tambah')->name('poli_tambah');

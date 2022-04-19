@@ -39,7 +39,7 @@
             <td>{{ $p->tgl_lahir}}</td>
             <td>{{ $p->jk}}</td>
 			<td>
-				<a href="/ubahpasien/{{ $p->no_rm }}">Edit</a>
+				<a href="{{ url('/ubahpasien/'.$p->no_rm) }}">Edit</a>
 				|
 				<a href="/hapuspasien/{{ $p->no_rm }}">Hapus</a>
 			</td>

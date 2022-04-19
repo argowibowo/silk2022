@@ -13,7 +13,7 @@
       </div>
       <div class="card card-primary card-outline">
             <div class="card-body">
-      <form action="/createpasien" method="post">
+      <form action="{{url('createpasien')}}" method="post">
                         {{ csrf_field() }}
                             <div class="form-group">
                             <div class="mb-3 row">
