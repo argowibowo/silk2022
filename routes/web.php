@@ -39,6 +39,7 @@ Route::get('/hapuspasien/{id}','App\Http\Controllers\PasienController@hapuspasie
 Route::get('/ubahpasien/{id}','App\Http\Controllers\PasienController@ubahpasien');
 Route::post('/editpasien/{id}','App\Http\Controllers\PasienController@editpasien');
 
+Route::get('/dashrawatjalan','App\Http\Controllers\RawatJalanController@dashrawatjalan');
 
 Route::get('/poli_dash','App\Http\Controllers\PoliController@poli_dash')->name('poli_dash');
 Route::post('/poli_tambah','App\Http\Controllers\PoliController@poli_tambah')->name('poli_tambah');
