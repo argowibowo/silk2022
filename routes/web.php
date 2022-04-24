@@ -29,10 +29,9 @@ Route::get('/rekam_medis/laporan','App\Http\Controllers\RekamMedisController@lap
 Route::get('/rekam_medis/antrian','App\Http\Controllers\RekamMedisController@antrian');
 Route::get('/rekam_medis/poli','App\Http\Controllers\RekamMedisController@poli');
 
-Route::get('/dokter','App\Http\Controllers\DokterController@dokterindex');
 
 Route::get('/getdatapasien','App\Http\Controllers\PasienController@getpasien');
-Route::get('/pasien','App\Http\Controllers\PasienController@pasienindex');
+Route::get('/pasienindex','App\Http\Controllers\PasienController@pasienindex');
 Route::get('/tambahpasien','App\Http\Controllers\PasienController@tambahpasien');
 Route::post('/createpasien','App\Http\Controllers\PasienController@createpasien');
 Route::get('/hapuspasien/{id}','App\Http\Controllers\PasienController@hapuspasien');
@@ -41,12 +40,19 @@ Route::post('/editpasien/{id}','App\Http\Controllers\PasienController@editpasien
 
 Route::get('/dashrawatjalan','App\Http\Controllers\RawatJalanController@dashrawatjalan');
 
+
 Route::get('/poli_dash','App\Http\Controllers\PoliController@poli_dash')->name('poli_dash');
-Route::post('/poli_tambah','App\Http\Controllers\PoliController@poli_tambah')->name('poli_tambah');
+Route::get('/poli_tambah','App\Http\Controllers\PoliController@poli_tambah')->name('poli_tambah');
+Route::post('/createpoli','App\Http\Controllers\PoliController@createpoli')->name('createpoli)');
 Route::get('/poli_edit/{id}','App\Http\Controllers\PoliController@poli_edit')->name('poli_edit');
 Route::post('/poli_update/{id}', '\App\Http\Controllers\PoliController@poli_update')->name('poli_update');
 Route::get('/poli_delete/{id}', '\App\Http\Controllers\PoliController@poli_delete')->name('poli_delete');
 
+
+Route::get('/dokterindex','App\Http\Controllers\DokterController@dokterindex')->name('dokterindex');;
+Route::post('/createdokter','App\Http\Controllers\DokterController@createdokter')->name('createdokter');;
 Route::get('/dokter_dash','App\Http\Controllers\DokterController@dokter_dash')->name('dokter_dash');
 Route::get('/dokter_tambah','App\Http\Controllers\DokterController@dokter_tambah')->name('dokter_tambah');
-Route::get('/dokter_edit','App\Http\Controllers\DokterController@dokter_edit')->name('dokter_edit');
+Route::get('/dokter_edit/{id}','App\Http\Controllers\DokterController@dokter_edit')->name('dokter_edit');
+Route::post('/dokter_update/{id}', '\App\Http\Controllers\DokterController@dokter_update')->name('dokter_update');
+Route::get('/dokter_delete/{id}','App\Http\Controllers\DokterController@dokter_delete')->name('dokter_delete');

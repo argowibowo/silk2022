@@ -15,13 +15,42 @@ class PoliController extends Controller
     	return view('poli_dash',['poli' => $poli]);
     }
 
-    public function poli_tambah(Request $request)
+	public function getpoli()
+    {
+    	// mengambil data dari table poli
+    	$poli = DB::table('poli')->get();
+ 
+    	// mengirim data poli ke view index
+    	if($poli){
+            return response()->json(["Result"=>
+                    ["ResultCode"=> 1,
+                    "ResultMessage"=>"Success get data poli" ],
+                    "DataUser"=>$poli
+                ], 200
+            );
+    	}
+	}
+
+
+	public function poli_tambah()
+    {
+    	$poli = DB::table('poli')->get();
+
+    	return view('poli_tambah',['poli' => $poli]);
+ 
+    }
+
+    // method untuk insert data ke table poli
+public function createpoli(Request $request)
 {
 	DB::table('poli')->insert([
-		'nama_poli' => $request->nama_poli,
+		'id' => $request->id,
+		'nama_poli' => $request->nama_poli
 	]);
 	return redirect('/poli_dash');
 }
+
+ 
 public function poli_delete($id)
 {
 	DB::table('poli')->where('id',$id)->delete();

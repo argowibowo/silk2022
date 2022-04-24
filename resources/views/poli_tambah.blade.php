@@ -13,7 +13,7 @@
       </div>
       <div class="card card-primary card-outline">
             <div class="card-body">
-      <form action="/poli_tambah" method="post">
+      <form action="{{url('createpoli')}}" method="post">
                         {{ csrf_field() }}
                             <div class="form-group">
                             <div class="mb-3 row">
@@ -22,7 +22,7 @@
                             <input type="text" class="form-control" id="inputPassword" name="nama_poli" style=width:500px>
                         </div></div></div>                        
                 <div class="card-footer" style="float-right">
-                    <button type="button" class="btn btn-danger float-right"  data-dismiss="modal">Batal</button>
+                <a class="btn btn-danger" href="{{url('poli_dash')}}" role="button">Batal</a>
                     <button type="submit" class="btn btn-primary float-right" >Simpan</button>
                 </div>
             </form>

@@ -17,9 +17,10 @@
     <!-- Sidebar Menu -->
     <ul class="sidebar-menu" data-widget="tree">
       <!-- Optionally, you can add icons to the links -->
-      <li><a href="{{ url('tambahpasien') }}"><i class="fa fa-users"></i> <span>Tambah Data Pasien</span></a></li>
+      <li><a href="{{ url('pasienindex') }}"><i class="fa fa-users"></i> <span>Tambah Data Pasien</span></a></li>
+      <li><a href="{{ url('dokterindex') }}"><i class="fa fa-users"></i> <span>Tambah Data Dokter</span></a></li>
       <li><a href="#"><i class="fa fa-calendar"></i> <span>Tambah Data Obat</span></a></li>
-      <li><a href="#"><i class="fa fa-list-ol"></i> <span>Tambah Data Poli</span></a></li>
+      <li><a href="{{ url('poli_dash') }}"><i class="fa fa-list-ol"></i> <span>Tambah Data Poli</span></a></li>
       <li><a href="/rekam_medis"><i class="fa fa-list-ol" ></i> <span>Rekam Medis</span></a></li>
     </ul>
     <!-- /.sidebar-menu -->

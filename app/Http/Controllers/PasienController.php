@@ -56,14 +56,14 @@ public function createpasien(Request $request)
         'jk' => $request->jk,
 
 	]);
-	return redirect('/pasien');
+	return redirect('/pasienindex');
 }
 
 public function hapuspasien($id)
 {
 	DB::table('pasien')->where('no_rm',$id)->delete();
 	
-	return redirect('/pasien');
+	return redirect('/pasienindex');
 }
 
 public function ubahpasien($id)
@@ -86,7 +86,7 @@ public function editpasien(Request $request)
         'jk' => $request->jk,
 
 	]);
-	return redirect('/pasien');
+	return redirect('/pasienindex');
 }
 	
 }
