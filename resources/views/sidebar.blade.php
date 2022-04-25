@@ -16,13 +16,14 @@
 
     <!-- Sidebar Menu -->
     <ul class="sidebar-menu" data-widget="tree">
-        <!-- Optionally, you can add icons to the links -->
-        <li><a href="{{ url('pasienindex') }}"><i class="fa fa-users"></i> <span>Tambah Data Pasien</span></a></li>
-        <li><a href="{{ url('dokterindex') }}"><i class="fa fa-user-md"></i> <span>Tambah Data Dokter</span></a></li>
-        <li><a href="#"><i class="fa fa-medkit"></i> <span>Tambah Data Obat</span></a></li>
-        <li><a href="{{ url('poli_dash') }}"><i class="fa fa-hospital-o"></i> <span>Tambah Data Poli</span></a></li>
-        <li><a href="{{ url('rekam_medis') }}"><i class="fa fa-file-text" ></i> <span>Rekam Medis</span></a></li>
-        <li><a href="{{ url('dashrawatjalan') }}"><i class="fa fa-heartbeat" ></i> <span>Rawat Jalan</span></a></li>
+      <!-- Optionally, you can add icons to the links -->
+      <li><a href="{{ url('pasienindex') }}"><i class="fa fa-users"></i> <span>Tambah Data Pasien</span></a></li>
+      <li><a href="{{ url('dokterindex') }}"><i class="fa fa-users"></i> <span>Tambah Data Dokter</span></a></li>
+      <li><a href="{{ url('obatindex') }}"><i class="fa fa-users"></i> <span>Tambah Data Obat</span></a></li>
+      <li><a href="{{ url('transaksiobatindex') }}"><i class="fa fa-users"></i> <span>Transaksi Obat</span></a></li>
+      <li><a href="{{ url('poli_dash') }}"><i class="fa fa-hospital-o"></i> <span>Tambah Data Poli</span></a></li>
+      <li><a href="{{ url('rekam_medis') }}"><i class="fa fa-file-text" ></i> <span>Rekam Medis</span></a></li>
+      <li><a href="{{ url('dashrawatjalan') }}"><i class="fa fa-heartbeat" ></i> <span>Rawat Jalan</span></a></li>
     </ul>
     <!-- /.sidebar-menu -->
   </section>
