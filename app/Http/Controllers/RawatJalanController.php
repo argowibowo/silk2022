@@ -11,12 +11,20 @@ class RawatJalanController extends Controller
     public function dashrawatjalan()
     {
     	// mengambil data dari api pasien
-    	$data_pasien = Http::get('http://localhost/silk2021/public/getdatapasien')->json();
-        dd($data_pasien);
+    	$data_pasien = Http::get('http://localhost/silk2022/public/getdatapasien')->json();
+        //dd($data_pasien);
 
     	// mengirim data pasien ke view index
-    	// return view('pasienindex',['pasien' => $pasien]);
- 
+    	return view('views_RawatJalan.rawatJalan_dash', compact('data_pasien'));
+
     }
-	
+
+    public function addPasienRawatJalan()
+    {
+    	$pasien = DB::table('pasien')->get();
+
+    	return view('views_RawatJalan.rawatjalan_form',['pasien' => $pasien]);
+
+    }
+
 }
