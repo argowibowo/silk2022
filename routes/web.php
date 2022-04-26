@@ -24,6 +24,7 @@ Route::get('/logout','App\Http\Controllers\LoginController@logoutSistem');
 
 
 Route::get('/rekam_medis','App\Http\Controllers\RekamMedisController@index');
+Route::get('/rekam_medis/tambah','App\Http\Controllers\RekamMedisController@tambah');
 Route::get('/rekam_medis/cari','App\Http\Controllers\RekamMedisController@cari');
 Route::get('/rekam_medis/laporan','App\Http\Controllers\RekamMedisController@laporan');
 Route::get('/rekam_medis/antrian','App\Http\Controllers\RekamMedisController@antrian');

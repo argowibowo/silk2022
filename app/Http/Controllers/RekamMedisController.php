@@ -18,6 +18,14 @@ class RekamMedisController extends Controller
             // all()
         ]);
     }
+
+	public function tambah()
+	{
+        return view('view_rm.tambah',[
+            // 'rm'=>RekamMedis::
+            // all()
+        ]);
+    }
     
     public function cari(Request $request)
 	{

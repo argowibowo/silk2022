@@ -2,13 +2,11 @@
 
 @section('content')
 <div class="row">
-    <!-- left column -->
     <div class="col-md-12">
-      <!-- general form elements -->
       <div class="box box-primary">
 
         <div class="box-header with-border">
-          <h3 class="box-title">Rekam Medis</h3>
+          <a href="{{ url('rekam_medis/tambah') }}" class="btn btn-primary">Tambah Rekam Medis</a>
         </div>
 
         <div class="box-header with-border">
@@ -18,25 +16,41 @@
           </form>
         </div>
 
-        <div class="table-responsive col-lg-11 mb-5">
-          <table class="table table-striped table-sm">
-            <thead>
-              <tr>
-                <th scope="col">No</th>
-                <th scope="col">Nama Pasien</th>
-                <th scope="col">Riwayat</th>
-                              
-              </tr>
-            </thead>
-            <tbody>
-        
-               
-             </tbody>
-          </table>
+        <div class="card-content">
+          <div class="card-body card-dashboard">
+            <div class="table-responsive">
+              <table class="table table-striped dataex-html5-selectors">
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th>No RM</th>
+                    <th>Nama Pasien</th>
+                    <th>Tindakan</th>
+                    <th>Poli</th>
+                    <th>Dokter</th>
+                    <th>Tanggal Priksa</th>
+                    <th>
+                      <i class="feather icon-settings"></i>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
-        <!-- form start -->
       </div>
-      <!-- /.box -->
     </div>
 </div>
 @endsection
