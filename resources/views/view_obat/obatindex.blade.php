@@ -8,7 +8,7 @@
       <!-- general form elements -->
       <div class="box box-primary">
         <div class="box-header with-border">
-          <h3 class="box-title">Data Dokter SILK 2022</h3>
+          <h3 class="box-title">Data Obat SILK 2022</h3>
             <nav class="navbar-light">
                 <a class="btn btn-primary" href="obat_tambah" role="button">Tambah Data Obat</a>
             </nav>
