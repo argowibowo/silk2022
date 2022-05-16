@@ -36,6 +36,7 @@
       
       <li><a href="{{ url('rekam_medis') }}"><i class="fa fa-file-text" ></i> <span>Rekam Medis</span></a></li>
       <li><a href="{{ url('dashrawatjalan') }}"><i class="fa fa-heartbeat" ></i> <span>Rawat Jalan</span></a></li>
+      <li><a href="{{ url('checkup') }}"><i class="fa fa-heartbeat" ></i> <span>Check Up Pasien </span></a></li>
     </ul>
     <!-- /.sidebar-menu -->
   </section>
