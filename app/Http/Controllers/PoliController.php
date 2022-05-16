@@ -71,4 +71,15 @@ public function poli_update(Request $request)
 	]);
 	return redirect('/poli_dash');
 }
+    
+    public function dashcheckup()
+{
+	// mengambil data dari api poli
+	$data_poli = Http::get('http://localhost/silk2022/public/getdatapoli')->json();
+	//dd($data_poli);
+
+	// mengirim data poli ke view index
+	return view('checkup.blade', compact('data_poli'));
+
+}
 }
