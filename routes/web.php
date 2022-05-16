@@ -42,7 +42,7 @@ Route::post('/editpasien/{id}','App\Http\Controllers\PasienController@editpasien
 Route::get('/dashrawatjalan','App\Http\Controllers\RawatJalanController@dashrawatjalan');
 Route::get('/tambahrawatjalan','App\Http\Controllers\RawatJalanController@addPasienRawatJalan');
 
-
+Route::get('/getdatapoli','App\Http\Controllers\PoliController@getpoli');
 Route::get('/poli_dash','App\Http\Controllers\PoliController@poli_dash')->name('poli_dash');
 Route::get('/poli_tambah','App\Http\Controllers\PoliController@poli_tambah')->name('poli_tambah');
 Route::post('/createpoli','App\Http\Controllers\PoliController@createpoli')->name('createpoli)');
@@ -76,3 +76,10 @@ Route::get('/getAntrianObat','App\Http\Controllers\AntrianObatController@getAntr
 Route::get('/tambahAntrianObat','App\Http\Controllers\AntrianObatController@tambahAntrianObat');
 Route::post('/createAntrianObat','App\Http\Controllers\AntrianObatController@createAntrianObat');
 Route::get('/hapusAntrianObat/{id}','App\Http\Controllers\AntrianObatController@hapusAntrianObat');
+
+Route::get('/dashcheckup','App\Http\Controllers\PoliController@dashcheckup');
+Route::get('/checkup','App\Http\Controllers\PasienController@checkup');
+Route::post('/createcheckup','App\Http\Controllers\PasienController@createcheckup');
+Route::get('/checkup_tambah','App\Http\Controllers\PasienController@checkup_tambah');
+Route::post('/checkup_ubah/{id}','App\Http\Controllers\PasienController@checkup_edit');
+
