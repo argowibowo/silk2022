@@ -58,3 +58,21 @@ Route::get('/dokter_tambah','App\Http\Controllers\DokterController@dokter_tambah
 Route::get('/dokter_edit/{id}','App\Http\Controllers\DokterController@dokter_edit')->name('dokter_edit');
 Route::post('/dokter_update/{id}', '\App\Http\Controllers\DokterController@dokter_update')->name('dokter_update');
 Route::get('/dokter_delete/{id}','App\Http\Controllers\DokterController@dokter_delete')->name('dokter_delete');
+
+Route::get('/antrianPendaftaranIndex','App\Http\Controllers\AntrianPendaftaranController@antrianPendaftaranIndex');
+Route::get('/getAntrianPendaftaran','App\Http\Controllers\AntrianPendaftaranController@getAntrianPendaftaran');
+Route::get('/tambahAntrianPendaftaran','App\Http\Controllers\AntrianPendaftaranController@tambahAntrianPendaftaran');
+Route::post('/createAntrianPendaftaran','App\Http\Controllers\DokterController@createAntrianPendaftaran');
+Route::get('/hapusAntrianPendaftaran/{id}','App\Http\Controllers\AntrianPendaftaranController@hapusAntrianPendaftaran');
+
+Route::get('/antrianPoliIndex','App\Http\Controllers\AntrianPoliController@antrianPoli');
+Route::get('/getAntrianPoli','App\Http\Controllers\AntrianPoliController@getAntrianPoli');
+Route::get('/tambahAntrianPoli','App\Http\Controllers\AntrianPoliController@tambahAntrianPoli');
+Route::post('/createAntrianPoli','App\Http\Controllers\AntrianPoliController@createAntrianPoli');
+Route::get('/hapusAntrianPoli/{id}','App\Http\Controllers\AntrianPoliController@hapusAntrianPoli');
+
+Route::get('/antrianObatIndex','App\Http\Controllers\AntrianObatController@antrianObat');
+Route::get('/getAntrianObat','App\Http\Controllers\AntrianObatController@getAntrianObat');
+Route::get('/tambahAntrianObat','App\Http\Controllers\AntrianObatController@tambahAntrianObat');
+Route::post('/createAntrianObat','App\Http\Controllers\AntrianObatController@createAntrianObat');
+Route::get('/hapusAntrianObat/{id}','App\Http\Controllers\AntrianObatController@hapusAntrianObat');
