@@ -22,14 +22,14 @@
                     <th>Antrian</th>
                     <th>Aksi</th>
                   </tr>
-                  @foreach($pasien as $p)
+                  @foreach($getAlldata as $p)
                   <tr>
             <td>{{ $p->no_rm}}</td>
             <td>{{ $p->nama}}</td>
-            <td>{{ $p->alamat}}</td>
-            <td>{{ $p->nik}}</td>
+            <td>{{ $p->nama_poli}}</td>
+            <td>{{ $p->id_antrian_poli}}</td>
 			<td>
-				<a href="{{ url('/checkup_ubah/'.$p->no_rm) }}">Edit</a>
+				<a href="{{ url('/checkup_edit/'.$p->id_antrian_poli) }}">Edit</a>
 				|
 				<a href="/hapuspasien/{{ $p->no_rm }}">Hapus</a>
 			</td>
