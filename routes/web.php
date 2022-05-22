@@ -83,6 +83,7 @@ Route::post('/createcheckup','App\Http\Controllers\PasienController@createchecku
 Route::get('/checkup_tambah','App\Http\Controllers\PasienController@checkup_tambah');
 Route::post('/checkup_update/{id}','App\Http\Controllers\PasienController@checkup_update');
 Route::get('/checkup_edit/{id}','App\Http\Controllers\PasienController@checkup_edit');
+Route::get('/checkup_hapus/{id}','App\Http\Controllers\PasienController@checkup_hapus');
 Route::get('/autocomplete', '\App\Http\Controllers\PasienController@autocomplete')->name('autocomplete');
 
 Route::get('/obatindex','App\Http\Controllers\ObatController@obatindex');
