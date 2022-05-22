@@ -172,6 +172,12 @@ public function createcheckup(Request $request)
 	]);
 	return redirect('/checkup');
 }
+    public function checkup_hapus($id)
+{
+	DB::table('antrian_poli')->where('id_antrian_poli',$id)->delete();
+	
+	return redirect('/checkup');
+}
 
 // public function autocomplete(Request $request)
 // {
