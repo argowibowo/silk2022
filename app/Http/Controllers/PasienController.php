@@ -88,5 +88,105 @@ public function editpasien(Request $request)
 	]);
 	return redirect('/pasienindex');
 }
+public function checkup()
+    {
+    	// mengambil data dari table pasien
+    	$pasien = DB::table('pasien')->get();
+ 
+    	// mengirim data pasien ke view index
+    	return view('checkup',['pasien' => $pasien]);
+ 
+    }
+//////////////masih coba belum fix////////////////////////
+public function dashcheckup()
+{
+	// mengambil data dari api pasien
+	$data_pasien = Http::get('http://localhost/silk2022/public/getdatapasien')->json();
+	
+
+	// mengirim data poli ke view index
+	return view('checkup.blade', compact('data_pasien'));
+
+}
+public function getAllCheckup() {
+
+        $getAlldata = DB::table('antrian_poli')
+                        ->join('poli', 'poli.id', '=', 'antrian_poli.id_poli')
+                        ->join('pasien', 'pasien.no_rm', '=', 'antrian_poli.no_rm')
+                        ->get();
+
+		return view('checkup', compact('getAlldata'));
+    }
+
+	
+
+////// /////////////////////////////////////////////////////////////////////////////////////////
+
+
+// public function checkup_tambah()
+//     {
+//     	$pasien = DB::table('pasien')->get();
+
+//     	return view('checkup_tambah',['pasien' => $pasien]);
+ 
+//     }
+	public function checkup_update(Request $request)
+{
+	DB::table('antrian_poli')->where('id_antrian_poli',$request->id)->update([
+		'id_poli' => $request->id_poli,
+		'no_rm' => $request->no_rm,
+	]);
+	return redirect('/checkup');
+}
+public function checkup_edit($id)
+{
+	// $antrian = DB::table('antrian_poli')->where('id_antrian_poli',$id)->get();
+	$antrian = DB::table('antrian_poli')
+	->join('poli', 'poli.id', '=', 'antrian_poli.id_poli')
+	->join('pasien', 'pasien.no_rm', '=', 'antrian_poli.no_rm')
+	->find($id);
+	
+	$poli = DB::table('poli')->get();
+
+	return view('checkup_ubah',['antrian_poli' => $antrian],['poli' => $poli]);
+
+}
+
+public function checkup_tambah()
+{
+
+	// $poli = Http::get('http://localhost/silk2022/public/getdatapoli')->json();
+	$poli = DB::table('poli')->get();
+
+	// mengirim data poli ke view index
+	return view('checkup_tambah', compact('poli'));
+
+}
+
+public function createcheckup(Request $request)
+{
+	DB::table('antrian_poli')->insert([
+		'tanggal' => $request->tanggal,
+		'no_rm' => $request->no_rm,
+		'id_poli' => $request->id_poli,
+	]);
+	return redirect('/checkup');
+}
+
+// public function autocomplete(Request $request)
+// {
+//     try {
+//         $getFields = pasien::all()
+//         ->where('no_rm',$request->get('no_rm'))->first();
+//         // here you could check for data and throw an exception if not found e.g.
+//         // if(!$getFields) {
+//         //     throw new \Exception('Data not found');
+//         // }
+//         return response()->json($getFields, 200);
+//     } catch (\Exception $e) {
+//         return response()->json(['message' => $e->getMessage()], 500);
+//     }
+// }
+	
 	
 }
