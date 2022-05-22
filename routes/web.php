@@ -77,11 +77,13 @@ Route::get('/tambahAntrianObat','App\Http\Controllers\AntrianObatController@tamb
 Route::post('/createAntrianObat','App\Http\Controllers\AntrianObatController@createAntrianObat');
 Route::get('/hapusAntrianObat/{id}','App\Http\Controllers\AntrianObatController@hapusAntrianObat');
 
+Route::get('/checkup','App\Http\Controllers\PasienController@getAllCheckup');
 Route::get('/dashcheckup','App\Http\Controllers\PoliController@dashcheckup');
-Route::get('/checkup','App\Http\Controllers\PasienController@checkup');
 Route::post('/createcheckup','App\Http\Controllers\PasienController@createcheckup');
 Route::get('/checkup_tambah','App\Http\Controllers\PasienController@checkup_tambah');
-Route::post('/checkup_ubah/{id}','App\Http\Controllers\PasienController@checkup_edit');
+Route::post('/checkup_update/{id}','App\Http\Controllers\PasienController@checkup_update');
+Route::get('/checkup_edit/{id}','App\Http\Controllers\PasienController@checkup_edit');
+Route::get('/autocomplete', '\App\Http\Controllers\PasienController@autocomplete')->name('autocomplete');
 
 Route::get('/obatindex','App\Http\Controllers\ObatController@obatindex');
 Route::get('/getObat','App\Http\Controllers\ObatController@getObat');
