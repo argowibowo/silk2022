@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 
-class RawatJalanController extends Controller
+class AntrianObatController extends Controller
 {
     public function antrianObatIndex()
     {
@@ -14,7 +14,7 @@ class RawatJalanController extends Controller
     	$antrian_pendaftaran = DB::table('antrian_obat')->get();
  
     	// mengirim data antrian_obat ke view index
-    	return view('antrianObatIndex',['antrian_obat' => $antrian_obat]);
+    	return view('view_antrian_poli/antrianObatIndex',['antrian_obat' => $antrian_obat]);
 
     }
 
@@ -38,7 +38,7 @@ class RawatJalanController extends Controller
     {
     	$antrian_obat = DB::table('antrian_obat')->get();
 
-    	return view('tambahAntrianObat',['antrian_obat' => $antrian_obat]);
+    	return view('vie_antrian_obat/tambahAntrianObat',['antrian_obat' => $antrian_obat]);
 
     }
 
