@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 
-class RawatJalanController extends Controller
+class AntrianPoliController extends Controller
 {
     public function antrianPoliIndex()
     {
@@ -14,7 +14,7 @@ class RawatJalanController extends Controller
     	$antrian_poli = DB::table('antrian_poli')->get();
  
     	// mengirim data antrian poli ke view index
-    	return view('antrianPoliIndex',['antrian_poli' => $antrian_poli]);
+    	return view('View_antrian_poli/antrianPoliIndex',['antrian_poli' => $antrian_poli]);
 
     }
 
@@ -38,7 +38,7 @@ class RawatJalanController extends Controller
     {
     	$antrian_poli = DB::table('antrian_poli')->get();
 
-    	return view('tambahAntrianPoli',['antrian_poli' => $antrian_poli]);
+    	return view('View_antrian_poli/tambahAntrianPoli',['antrian_poli' => $antrian_poli]);
 
     }
 
