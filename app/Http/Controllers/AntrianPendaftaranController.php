@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 
-class RawatJalanController extends Controller
+class AntrianPendaftaranController extends Controller
 {
     public function antrianPendaftaranIndex()
     {
@@ -14,7 +14,7 @@ class RawatJalanController extends Controller
     	$antrian_pendaftaran = DB::table('antrian_pendaftaran')->get();
  
     	// mengirim data antrian_pendaftaran ke view index
-    	return view('antrianPendaftaranIndex',['antrian_pendaftaran' => $antrian_pendaftaran]);
+    	return view('view_antrian_pendaftaran/antrianPendaftaranIndex',['antrian_pendaftaran' => $antrian_pendaftaran]);
 
     }
 
@@ -38,7 +38,7 @@ class RawatJalanController extends Controller
     {
     	$antrian_pendaftaran = DB::table('antrian_pendaftaran')->get();
 
-    	return view('tambahAntrianPendaftaran',['antrian_pendaftaran' => $antrian_pendaftaran]);
+    	return view('view_antrian_pendaftaran/tambahAntrianPendaftaran',['antrian_pendaftaran' => $antrian_pendaftaran]);
 
     }
 
