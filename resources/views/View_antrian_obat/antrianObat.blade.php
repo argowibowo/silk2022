@@ -21,7 +21,7 @@
                     <th>ID Poli</th>
                     <th>No Rekam Medis</th>
                     </tr>
-                  @foreach($antrian_poli as $ap)
+                  @foreach($antrian_obat as $ap)
 		<tr>
 			<td>{{ $ap->id_antrian_obat}}</td>
 			<td>{{ $ap->tanggal}}</td>
