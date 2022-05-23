@@ -6,15 +6,15 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 
-class RawatJalanController extends Controller
+class AntrianObatController extends Controller
 {
     public function antrianObatIndex()
     {
     	// mengambil data dari table antrian_obat
-    	$antrian_pendaftaran = DB::table('antrian_obat')->get();
+    	$antrian_obat = DB::table('antrian_obat')->get();
  
     	// mengirim data antrian_obat ke view index
-    	return view('antrianObatIndex',['antrian_obat' => $antrian_obat]);
+    	return view('view_antrian_obat/antrianObatIndex',['antrian_obat' => $antrian_obat]);
 
     }
 
@@ -38,7 +38,7 @@ class RawatJalanController extends Controller
     {
     	$antrian_obat = DB::table('antrian_obat')->get();
 
-    	return view('tambahAntrianObat',['antrian_obat' => $antrian_obat]);
+    	return view('view_antrian_obat/tambahAntrianObat',['antrian_obat' => $antrian_obat]);
 
     }
 
@@ -47,6 +47,8 @@ class RawatJalanController extends Controller
 		DB::table('antrian_obat')->insert([
 			'id_antrian_obat' => $request->id_antrian_obat,
 			'tanggal' => $request->tanggal,
+			'id_poli' => $request->id_poli,
+			'no_rm' => $request->no_rm,
 		]);
 		return redirect('/antrianObatIndex');
 	}
