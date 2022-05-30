@@ -6,39 +6,64 @@ use App\Models\RekamMedis;
 use App\Http\Requests\StoreRekamMedisRequest;
 use App\Http\Requests\UpdateRekamMedisRequest;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Request;
+use Illuminate\Http\Request; 
 
 class RekamMedisController extends Controller
 {
    
     public function index()
     {
-        return view('view_rm.index',[
-            // 'rm'=>RekamMedis::
-            // all()
-        ]);
+        $RekamMedis = DB::table('rekam_medis')
+            ->join('pasien', 'rekam_medis.NoRM', '=', 'pasien.no_rm')
+            ->join('poli', 'rekam_medis.id_poli', '=', 'poli.id')
+            ->join('dokter', 'rekam_medis.id_dokter', '=', 'dokter.id') 
+            ->get();
+
+
+    return view('view_rm.index', compact('RekamMedis'));
     }
 
 	public function tambah()
 	{
-        return view('view_rm.tambah',[
-            // 'rm'=>RekamMedis::
-            // all()
+        $dokter = DB::table('dokter')->get();
+        $pasien = DB::table('pasien')->get();
+        $poli = DB::table('poli')->get();
+
+        return view('view_rm.tambah', compact('dokter','pasien','poli'));
+    }
+
+    public function simpan(Request $request)
+    {
+        DB::table('rekam_medis')->insert([
+            'NoRm' => $request->psn_id,
+            'tindakan' => $request->tindakan,
+            'id_poli' => $request->pli_id,
+            'id_dokter' => $request->dkr_id,
+            'tanggal' => $request->tanggal,
+    
         ]);
+        return redirect('/rekam_medis');
+    }
+
+    public function hapus($id)
+    {
+        DB::table('rekam_medis')->where('id_rm',$id)->delete();
+        
+        return redirect('/rekam_medis');
     }
     
     public function cari(Request $request)
 	{
-		// menangkap data pencarian
 		$cari = $request->cari;
  
-    		// mengambil data dari table pegawai sesuai pencarian data
-		$rm = DB::table('rekammedis')
-		->where('NoRM','like',"%".$cari."%")
-		->paginate();
- 
-    		// mengirim data pegawai ke view index
-		return view('rm.index',['rm' => $rm]);
+    	$RekamMedis = DB::table('rekam_medis')
+            ->join('pasien', 'rekam_medis.NoRM', '=', 'pasien.no_rm')
+            ->join('poli', 'rekam_medis.id_poli', '=', 'poli.id')
+            ->join('dokter', 'rekam_medis.id_dokter', '=', 'dokter.id') 
+            ->where('NoRM','like',"%".$cari."%")
+            ->paginate();
+		
+		return view('view_rm.index',['RekamMedis' => $RekamMedis]);
  
 	}
 
