@@ -132,9 +132,8 @@ public function getAllCheckup() {
 //     }
 	public function checkup_update(Request $request)
 {
-	DB::table('antrian_poli')->where('id_antrian_poli',$request->id)->update([
+	DB::table('antrian_poli')->where('id_poli',$request->id)->update([
 		'id_poli' => $request->id_poli,
-		'no_rm' => $request->no_rm,
 	]);
 	return redirect('/checkup');
 }
@@ -144,11 +143,11 @@ public function checkup_edit($id)
 	$antrian = DB::table('antrian_poli')
 	->join('poli', 'poli.id', '=', 'antrian_poli.id_poli')
 	->join('pasien', 'pasien.no_rm', '=', 'antrian_poli.no_rm')
-	->find($id);
+	->get();
 	
 	$poli = DB::table('poli')->get();
 
-	return view('checkup_ubah',['antrian_poli' => $antrian],['poli' => $poli]);
+	return view('checkup_ubah',['poli' => $poli],['antrian_poli' => $antrian]);
 
 }
 
