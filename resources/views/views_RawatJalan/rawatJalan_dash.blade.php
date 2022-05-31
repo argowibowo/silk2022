@@ -8,10 +8,17 @@
       <!-- general form elements -->
       <div class="box box-primary">
         <div class="box-header with-border">
-          <h3 class="box-title">Data Pasien SILK 2022</h3>
-            <nav class="navbar-light">
-                <a class="btn btn-primary" href="tambahrawatjalan" role="button">Pasien Rawat Jalan</a>
-            </nav>
+            <h3 class="box-title mg-1">Data Pasien SILK 2022</h3>
+        </div>
+        <div class="box-header with-border">
+            {{-- <a class="btn btn-primary" href="tambahrawatjalan" role="button">Pasien Rawat Jalan</a> --}}
+             <div class="col-sm-10">
+                <select class="form-control" id="position-option" name="position_id">
+                    @foreach($data_pasien['DataUser'] as $p)
+                        <option value="{{$p['alamat']}}">{{$p['alamat']}}</option>
+                    @endforeach
+                </select>
+            </div>
         </div>
         <table id="example2" class="table table-bordered table-hover">
             <thead align="center">
