@@ -2,6 +2,7 @@
 
 @section('content')
 
+
 <div class="row">
     <!-- left column -->
     <div class="col-md-12">
@@ -9,8 +10,13 @@
       <div class="box box-primary">
         <div class="box-header with-border">
           <h3 class="box-title">Data Pasien Baru</h3>
-           
       </div>
+         @if(session('gagal'))
+            <div class="alert alert-danger" role="alert">
+                {{session('gagal')}}
+                <button type="button" class="close" data-dismiss="alert">×</button> 
+            </div>
+        @endif
       <div class="card card-primary card-outline">
             <div class="card-body">
             <form action="{{url('createcheckup')}}" method="post">
@@ -19,13 +25,14 @@
                             <div class="mb-3 row">
                             <label for="no_rm" class="col-sm-2 col-form-label">No Rekam Medis</label>
                             <div class="col-sm-10">
-                            <input type="text" class="form-control" id="no_rm" name="no_rm" style=width:500px>
+                            <input type="text" class="form-control" id="no_rm" name="no_rm" style=width:500px required>
+                            
                         </div></div></div>
                         <div class="form-group row">
                             <label for="inputPassword" class="col-sm-2 col-form-label">Tanggal</label>
                                 <div class="col-sm-10">
                                     <input type="date" id="inputPassword" name="tanggal" style=width:180px class="form-control
-                                    @error('tanggal') is-invalid @enderror" value="{{old('tanggal')}}">
+                                    @error('tanggal') is-invalid @enderror" value="{{old('tanggal')}}" required>
                                     @error('tanggal')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -35,7 +42,7 @@
                         <div class="mb-3 mt-3 row">
                             <label class="col-sm-2 col-form-label">Poli</label>
                         <div class="col-sm-10">
-                            <select name="id_poli" class="form-control select2bs4" style="width: 30%;">
+                            <select name="id_poli" class="form-control select2bs4" style="width: 30%;" required>
                             @foreach($poli as $p)   
                             <option value="{{$p->id}}">{{$p->nama_poli}}</option>
                             @endforeach
