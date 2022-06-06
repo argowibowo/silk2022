@@ -164,13 +164,19 @@ public function checkup_tambah()
 
 public function createcheckup(Request $request)
 {
+	$cekno_rm = DB::table('pasien')->where('no_rm', '=', $request->input('no_rm'))->first();
+	if ($cekno_rm === null) {
+		return redirect('/checkup_tambah')->with('gagal','NOMOR REKAM MEDIS TIDAK TERDAFTAR!!');
+} else {
 	DB::table('antrian_poli')->insert([
 		'tanggal' => $request->tanggal,
 		'no_rm' => $request->no_rm,
 		'id_poli' => $request->id_poli,
 	]);
 	return redirect('/checkup');
-}
+  
+}}
+    
     public function checkup_hapus($id)
 {
 	DB::table('antrian_poli')->where('id_antrian_poli',$id)->delete();
