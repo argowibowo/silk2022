@@ -30,8 +30,7 @@
             <td>{{ $p->id_antrian_poli}}</td>
 			<td>
 				<a href="{{ url('/checkup_edit/'.$p->id_antrian_poli) }}">Edit</a>
-				|
-				<a href="/checkup_hapus/{{ $p->id_antrian_poli }}>Hapus</a>
+				<a href="/checkup_hapus/{{ $p->id_antrian_poli }}">Hapus</a>
 			</td>
 		</tr>
 		@endforeach

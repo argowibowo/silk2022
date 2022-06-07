@@ -11,7 +11,7 @@
         </div>
 
         <div class="box-header with-border">
-          <form action="/rekam_medis/cari" method="GET">
+          <form action="{{ url('rekam_medis/cari') }}" method="GET">
             <input type="text" name="cari" placeholder="Cari No RM .." value="{{ old('cari') }}">
             <input type="submit" value="cari">
           </form>
@@ -40,7 +40,7 @@
                   
                 @foreach($RekamMedis as $r)
 		            <tr>
-                  <td>{{ $r->id_rm}}</td>
+                  <td>{{ $r->id}}</td>
                   <td>{{ $r->no_rm}}</td>
                   <td>{{ $r->nama}}</td>
                   <td>{{ $r->tindakan}}</td>
@@ -50,9 +50,8 @@
                   
            
                   <td>
-                    <a href="{{ url('/rekam_medis/detail/'.$r->id_rm) }}">Details</a>
-                    |
-                    <a href="hapus_rm/{{ $r->id_rm }}">Hapus</a>
+                    <a href="{{ url('/rekam_medis/detail/'.$r->id) }}">Details</a>
+                    <a href="hapus_rm/{{ $r->id }}">Hapus</a>
                   </td>
                 </tr>
                 @endforeach
