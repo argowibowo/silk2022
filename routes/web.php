@@ -77,3 +77,24 @@ Route::get('/hapusObat/{id}','App\Http\Controllers\ObatController@hapusObat');
 
 Route::get('/transaksiObat/{id}','App\Http\Controllers\TransaksiObatController@TransaksiObat');
 
+Route::get('antrianPoliIndex','App\Http\Controllers\AntrianPoliController@antrianPoliIndex')->name('antrianPoliIndex');
+Route::get('antrianPoliIndex/tambahAntrianPoli','App\Http\Controllers\AntrianPoliController@tambahAntrianPoli')->name('tambahAntrianPoli');
+Route::post('antrianPoliIndex/tambahAntrianPoli/proses','App\Http\Controllers\AntrianPoliController@createAntrianPoli')->name('createAntrianPoli');
+Route::get('antrianPoliIndex/tambahAntrianPoli/edit/{id_antrian_poli}','App\Http\Controllers\AntrianPoliController@editAntrianPoli')->name('editAntrianPoli');
+Route::post('antrianPoliIndex/tambahAntrianPoli/edit/proses/{id_antrian_poli}','App\Http\Controllers\AntrianPoliController@proseseditAntrianPoli')->name('proseseditAntrianPoli');
+Route::get('antrianPoliIndex/tambahAntrianPoli/hapus/{id_antrian_poli}','App\Http\Controllers\AntrianPoliController@hapusAntrianPoli')->name('hapusAntrianPoli');
+
+Route::get('antrianObatIndex','App\Http\Controllers\AntrianObatController@antrianObatIndex')->name('antrianObatIndex');
+Route::get('antrianObatIndex/tambahAntrianObat','App\Http\Controllers\AntrianObatController@tambahAntrianObat')->name('tambahAntrianObat');
+Route::post('antrianObatIndex/tambahAntrianObat/proses','App\Http\Controllers\AntrianObatController@createAntrianObat')->name('createAntrianObat');
+Route::get('antrianObatIndex/tambahAntrianObat/edit/{id_antrian_poli}','App\Http\Controllers\AntrianObatController@editAntrianObat')->name('editAntrianObat');
+Route::post('antrianObatIndex/tambahAntrianObat/edit/proses/{id_antrian_poli}','App\Http\Controllers\AntrianObatController@proseseditAntrianObat')->name('proseseditAntrianObat');
+Route::get('antrianObatIndex/tambahAntrianObat/hapus/{id_antrian_poli}','App\Http\Controllers\AntrianObatController@hapusAntrianObat')->name('hapusAntrianObat');
+
+Route::get('antrianRawatJalanIndex','App\Http\Controllers\AntrianRawatJalanController@antrianRawatJalanIndex')->name('antrianRawatJalanIndex');
+Route::get('antrianRawatJalanIndex/tambahAntrianRawatJalan','App\Http\Controllers\AntrianRawatJalanController@tambahAntrianRawatJalan')->name('tambahAntrianRawatJalan');
+Route::post('antrianRawatJalanIndex/tambahAntrianRawatJalan/proses','App\Http\Controllers\AntrianRawatJalanController@createAntrianRawatJalan')->name('createAntrianRawatJalan');
+Route::get('antrianRawatJalanIndex/tambahAntrianRawatJalan/edit/{id_antrian_poli}','App\Http\Controllers\AntrianRawatJalanController@editAntrianRawatJalan')->name('editAntrianRawatJalan');
+Route::post('antrianRawatJalanIndex/tambahAntrianRawatJalan/edit/proses/{id_antrian_poli}','App\Http\Controllers\AntrianRawatJalanController@proseseditAntrianRawatJalan')->name('proseseditAntrianRawatJalan');
+Route::get('antrianRawatJalanIndex/tambahAntrianRawatJalan/hapus/{id_antrian_poli}','App\Http\Controllers\AntrianRawatJalanController@hapusAntrianRawatJalan')->name('hapusAntrianRawatJalan');
+
