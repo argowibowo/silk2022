@@ -11,10 +11,10 @@ class AntrianObatController extends Controller
     public function antrianObatIndex()
     {
     	// mengambil data dari table antrian_obat
-    	$antrian_obat = DB::table('antrian_obat')->get();
+    	$antrian_obat = DB::table('antrian_obat')->join('poli','poli.id','=','antrian_obat.id_poli')->get();
  
     	// mengirim data antrian_obat ke view index
-    	return view('view_antrian_obat/antrianObatIndex',['antrian_obat' => $antrian_obat]);
+    	return view('View_antrian_obat/antrianObat',['antrian_obat' => $antrian_obat]);
 
     }
 
@@ -36,27 +36,42 @@ class AntrianObatController extends Controller
 
     public function tambahAntrianObat()
     {
-    	$antrian_obat = DB::table('antrian_obat')->get();
+    	$poli=DB::table('poli')->get();
+        $rekam_medis=DB::table('rekam_medis')->get();
 
-    	return view('view_antrian_obat/tambahAntrianObat',['antrian_obat' => $antrian_obat]);
+    	return view('view_antrian_obat/tambahAntrianObat',compact('poli','rekam_medis'));
 
     }
 
 	public function createAntrianObat(Request $request)
 	{
 		DB::table('antrian_obat')->insert([
-			'id_antrian_obat' => $request->id_antrian_obat,
 			'tanggal' => $request->tanggal,
 			'id_poli' => $request->id_poli,
-			'no_rm' => $request->no_rm,
+			'id_rm' => $request->id_rm,
 		]);
-		return redirect('/antrianObatIndex');
+		return redirect(route('antrianObatIndex'))->with('add','-');
 	}
 
-	public function hapusAntrianObat($id)
-	{
-		DB::table('antrian_obat')->where('id_antrian_obat',$id)->delete();
-		
-		return redirect('/antrianObatIndex');
-	}
-}
+	public function editAntrianObat(Request $request, $id_antrian_obat)
+    {
+        $antrian_obat = DB::table('antrian_obat')->join('poli','poli.id','=','antrian_obat.id_poli')->where('antrian_obat.id_antrian_obat',$id_antrian_obat)->get();
+        $poli=DB::table('poli')->get();
+        $rekam_medis=DB::table('rekam_medis')->get();
+        return view('View_antrian_obat/edit',compact('antrian_obat','poli','rekam_medis'));
+
+    }
+    public function proseseditAntrianObat(Request $request,$id_antrian_obat)
+    {
+        DB::table('antrian_obat')->where('id_antrian_obat',$id_antrian_obat)->update([
+            'tanggal' => $request->tanggal,
+            'id_poli' => $request->id_poli,
+            'id_rm' => $request->id_rm,
+        ]);
+        return redirect(route('antrianObatIndex'))->with('up','-');
+    }
+    public function hapusAntrianObat($id_antrian_obat)
+    {
+        DB::table('antrian_obat')->where('id_antrian_obat',$id_antrian_obat)->delete();
+        return redirect(route('antrianObatIndex'))->with('del','-');
+    }}
